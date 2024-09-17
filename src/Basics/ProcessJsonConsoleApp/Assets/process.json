@@ -1,0 +1,43 @@
+{
+	"Process": {
+		"ProcessType": "TU1",
+		"Header": {
+			"ControllerDpName": "TUCtrler30UIC01",
+			"ReportType": 1,
+			"ProcessStatus": 21
+		},
+		"ProcessResults": {
+			"LineC1": {
+				"Vol": 0.0,
+				"Temp": 15.0,
+				"Kind": "C",
+				"TransportDpNames": [
+					"Transport_260518858",
+					"Transport_260518859"
+				],
+				"LinePos": 1,
+				"ConConDpName": "TUCtrler30UIC01.Con.CmpCon1",
+				"DSWIDs": [
+					90090499,
+					90090505
+				]
+			},
+			"LineC2": {
+				"Vol": 0.0,
+				"Temp": 1.99,
+				"Kind": "C",
+				"TankDpName": "TankT60",
+				"LinePos": 2,
+				"ConConDpName": "TUCtrler30UIC01.Con.CmpCon2"
+			},
+			"LineW1": {
+				"Kind": "W",
+				"TankDpName": "TankN5",
+				"LinePos": 1,
+				"TankGroupOperationSeq": "97e4bdf2-38d0-4a32-9be2-45bab7d4fa17",
+				"ConConDpName": "TUCtrler30UIC01.Con.FinCon1",
+				"Vol": 0.0
+			}
+		}
+	}
+}
