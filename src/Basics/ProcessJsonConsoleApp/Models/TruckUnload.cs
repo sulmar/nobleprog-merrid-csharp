@@ -9,12 +9,23 @@ namespace ProcessJsonConsoleApp.Models
     class TruckUnload
     {
         public ProcessReport Process { get; set; }
+
+        public TruckUnload()
+        {
+            Process = new ProcessReport();
+        }
     }
 
     class ProcessReport
     {
         public string ProcessType { get; set; } // Wlasciwosc (Property)
         public Header Header { get; set; }
+
+        public ProcessReport()
+        {
+            Header = new Header();
+            ProcessType = "TU1";
+        }
     }
 
     class Header

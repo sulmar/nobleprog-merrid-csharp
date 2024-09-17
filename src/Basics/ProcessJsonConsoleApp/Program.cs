@@ -8,10 +8,6 @@ string json = File.ReadAllText("Assets/process.json");
 Console.WriteLine(json);
 
 TruckUnload truckUnload1 = new TruckUnload();
-truckUnload1.Process = new ProcessReport();
-truckUnload1.Process.Header = new Header();
-truckUnload1.Process.ProcessType = "TU1";
-
 TruckUnload truckUnload2 = new TruckUnload();
 
 
