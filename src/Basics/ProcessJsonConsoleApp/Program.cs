@@ -7,9 +7,11 @@ string json = File.ReadAllText("Assets/process.json");
 
 Console.WriteLine(json);
 
-TruckUnload truckUnload1 = new TruckUnload();
-TruckUnload truckUnload2 = new TruckUnload();
+ 
 
+
+TruckUnload truckUnload1 = new TruckUnload(json);
+TruckUnload truckUnload2 = new TruckUnload();
 
 
 Header header = new Header();

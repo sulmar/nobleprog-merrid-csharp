@@ -8,11 +8,28 @@ namespace ProcessJsonConsoleApp.Models
 {
     class TruckUnload
     {
+        public string Filename { get; set; }
         public ProcessReport Process { get; set; }
 
-        public TruckUnload()
+        public TruckUnload() // Konstructor
         {
             Process = new ProcessReport();
+        }
+
+        public TruckUnload(string filename)
+            : this()
+        {
+            this.Filename = filename;
+        }
+
+        public TruckUnload(int number)
+            : this("sample.json") 
+        {
+        }
+
+        public void DoWork()
+        {
+
         }
     }
 
