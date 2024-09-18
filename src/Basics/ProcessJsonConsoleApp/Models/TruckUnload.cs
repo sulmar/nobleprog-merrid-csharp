@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProcessJsonConsoleApp.Models
 {
-    class TruckUnload
+    public class TruckUnload
     {
         public string Filename { get; set; }
         public ProcessReport Process { get; set; }
@@ -26,15 +26,24 @@ namespace ProcessJsonConsoleApp.Models
         public TruckUnload(int number)
             : this("sample.json") 
         {
+
         }
 
-        public void DoWork()
+         void DoWork()
         {
 
         }
+
+
+        public static int PreTime { get; set; }
+
+        public static int CalculateProcessTime(int volume)
+        {
+            return PreTime + volume * 1;
+        }
     }
 
-    class ProcessReport
+    public class ProcessReport
     {
         public string ProcessType { get; set; } // Wlasciwosc (Property)
         public Header Header { get; set; }
@@ -46,7 +55,7 @@ namespace ProcessJsonConsoleApp.Models
         }
     }
 
-    class Header
+    public class Header
     {
 
         // Atrybut
@@ -56,7 +65,7 @@ namespace ProcessJsonConsoleApp.Models
         public ReportTypes ReportType { get; set; }
     }
 
-    enum ReportTypes : byte
+    public enum ReportTypes : byte
     {
         Etanol = 1,
         Ester = 2,
