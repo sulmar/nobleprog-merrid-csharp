@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,7 +48,11 @@ namespace ProcessJsonConsoleApp.Models
 
     class Header
     {
-        public string ControllerDpName { get; set; }
+
+        // Atrybut
+        [JsonProperty("ControllerDpName")]
+        public string ControllerDataPointName { get; set; }
+
         public ReportTypes ReportType { get; set; }
     }
 
