@@ -29,35 +29,45 @@ namespace ProcessJsonConsoleApp.Models
     }
 
 
-    //public abstract class PowerSupply
-    //{
-    //    public double Voltage { get; set; }
-    //}
-
-    public class Inverter
+    public abstract class PowerSupply
     {
-        public float Voltage { get; set; } = 12.01f;
+        public double Voltage { get; set; } = 12.01f;
+
+        public bool IsReady()
+        {
+            return this.Voltage > 0;
+        }
     }
 
-    //public class SoftStart 
-    //{
-    //    public double Voltage { get; set; }
-    //}
+    public class Inverter : PowerSupply
+    {
+    }
+
+    public class SoftStart : PowerSupply
+    {
+        public bool Bit1 { get; set; }
+        public bool Bit2 { get; set; }
+    }
+
+    public class Solar : PowerSupply
+    {
+
+    }
 
     public class Pump : Device // Dziedziczenie
     {
         public bool IsRunning { get; private set; }
        
-        private Inverter inverter;  // Kompozycja
+        private PowerSupply powerSupply;  // Kompozycja
 
-        public Pump(Inverter inverter)
+        public Pump(PowerSupply powerSupply)
         {
-            this.inverter = inverter;
+            this.powerSupply = powerSupply;
         }
 
         public void Start()
         {
-            if (inverter.Voltage > 0 && !IsRunning)
+            if (powerSupply.IsReady() && !IsRunning)
             {
                 IsRunning = true;
             }
