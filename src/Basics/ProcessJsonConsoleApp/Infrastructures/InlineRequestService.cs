@@ -1,23 +1,23 @@
 ﻿namespace ProcessJsonConsoleApp.Infrastructures
 {
-    class InlineRequestService : RequestService
+    class InlineRequestService : IRequestTruckService, IRequestRailService
     {
-        public override void SendRailLoadRequest(string name)
+        public void SendRailLoadRequest(string name)
         {
             Console.WriteLine($"Send rail load request to {name} via winccoa");
         }
 
-        public override void SendRailUnloadRequest(string name)
+        public void SendRailUnloadRequest(string name)
         {
             Console.WriteLine($"Send rail unload request to {name} via winccoa");
         }
 
-        public override void SendTruckLoadRequest(string name)
+        public void SendTruckLoadRequest(string name)
         {
             Console.WriteLine($"Send truck load request to {name} via winccoa");
         }
 
-        public override void SendTruckUnloadRequest(string name)
+        public void SendTruckUnloadRequest(string name)
         {
             Console.WriteLine($"Send truck unload request to {name} via winccoa");
         }

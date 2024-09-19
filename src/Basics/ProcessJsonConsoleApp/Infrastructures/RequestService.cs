@@ -1,10 +1,9 @@
 ﻿namespace ProcessJsonConsoleApp.Infrastructures
 {
-    abstract class RequestService
+    interface IRequestTruckService
     {
-        public abstract void SendTruckUnloadRequest(string name);
-        public abstract void SendTruckLoadRequest(string name);
-        public abstract void SendRailUnloadRequest(string name);
-        public abstract void SendRailLoadRequest(string name);
+        void SendTruckUnloadRequest(string name);
+        void SendTruckLoadRequest(string name);
+       
     }
 }
