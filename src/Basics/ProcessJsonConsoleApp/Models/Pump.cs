@@ -28,10 +28,34 @@ namespace ProcessJsonConsoleApp.Models
         }
     }
 
-    public class Pump : Device
+
+    //public abstract class PowerSupply
+    //{
+    //    public double Voltage { get; set; }
+    //}
+
+    public class Inverter
     {
-        
-        public bool IsRunning { get; set; }
+        public double Voltage { get; set; }
+    }
+
+    //public class SoftStart 
+    //{
+    //    public double Voltage { get; set; }
+    //}
+
+    public class Pump : Device // Dziedziczenie
+    {
+        public bool IsRunning { get; private set; }
+        public Inverter Inverter { get; set; }
+
+        public void Start()
+        {
+            if (Inverter.Voltage > 0 && !IsRunning)
+            {
+                IsRunning = true;
+            }
+        }
     }
 
     public class Valve : Device

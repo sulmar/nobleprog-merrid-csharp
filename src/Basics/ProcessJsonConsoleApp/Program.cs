@@ -9,9 +9,12 @@ devices.Add(new Pump());
 devices.Add(new Pump());
 devices.Add(new Valve());
 
-foreach (var device in devices)
+foreach (Device device in devices)
 {
     Console.WriteLine(device.Label);
+
+    if (device is Pump pump)
+        pump.IsRunning = true;
 }
 
 
