@@ -13,15 +13,23 @@ IDeviceRepository repository = new FakeDeviceRepository();
 
 List<Device> allDevices = repository.GetDevices();
 
-List<Device> filteredDevices = new List<Device>();
+// SQL: SELECT TOP(10) * FROM dbo.Devices WHERE Area='BasePump1 ORDER BY Name'
 
-foreach(Device device in allDevices)
-{
-    if (device.Area == "BasePump1")
-    {
-        filteredDevices.Add(device);
-    }
-}    
+// Linq
+List<Device> filteredDevices = allDevices
+    .Where(device => device.Area == "BasePump1")
+    .OrderBy(device => device.Name)
+    .Take(10)
+    .ToList();
+
+//foreach(Device device in allDevices)
+//{
+//    if (device.Area == "BasePump1")
+//    {
+//        filteredDevices.Add(device);
+//    }
+//}    
+
 
 foreach (Device device in filteredDevices)
 {
