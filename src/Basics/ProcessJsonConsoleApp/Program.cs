@@ -3,16 +3,12 @@ using Newtonsoft.Json;
 
 Console.WriteLine("Hello, Json!");
 
-
-List<Device> devices = new List<Device>();
-devices.Add(new Pump(new Inverter()));
-devices.Add(new Pump(new SoftStart()));
-devices.Add(new Valve());
+List<Device> devices = GetFakeDevices();
 
 foreach (Device device in devices)
 {
     Console.WriteLine(device.Label);
-    
+
     if (device is Pump pump)
     {
         pump.Start();
@@ -54,4 +50,13 @@ header.ReportType = ReportTypes.Etanol;
 if (header.ReportType == ReportTypes.Etanol)
 {
     Console.WriteLine((byte)header.ReportType);
+}
+
+static List<Device> GetFakeDevices()
+{
+    List<Device> devices = new List<Device>();
+    devices.Add(new Pump(new Inverter()));
+    devices.Add(new Pump(new SoftStart()));
+    devices.Add(new Valve());
+    return devices;
 }
