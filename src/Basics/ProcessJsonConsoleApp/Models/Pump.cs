@@ -38,6 +38,10 @@ namespace ProcessJsonConsoleApp.Models
             return this.Voltage > 0;
         }
 
+        public abstract void Show();
+
+        public abstract float GetPower();
+
         public void DoWork()
         {
 
@@ -46,6 +50,15 @@ namespace ProcessJsonConsoleApp.Models
 
     public class Inverter : PowerSupply
     {
+        public override float GetPower()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Show()
+        {
+            Console.WriteLine("[i]");
+        }
     }
 
     public class SoftStart : PowerSupply
@@ -53,15 +66,33 @@ namespace ProcessJsonConsoleApp.Models
         public bool Bit1 { get; set; }
         public bool Bit2 { get; set; }
 
+        public override float GetPower()
+        {
+            throw new NotImplementedException();
+        }
+
         public override bool IsReady()
         {
             return base.IsReady() && Bit1 && Bit2;
+        }
+
+        public override void Show()
+        {
+            Console.WriteLine("[-]");
         }
     }
 
     public class Solar : PowerSupply
     {
+        public override float GetPower()
+        {
+            throw new NotImplementedException();
+        }
 
+        public override void Show()
+        {
+            Console.WriteLine("[*]");
+        }
     }
 
     public class Pump : Device // Dziedziczenie
@@ -73,6 +104,11 @@ namespace ProcessJsonConsoleApp.Models
         public Pump(PowerSupply powerSupply)
         {
             this.powerSupply = powerSupply;
+        }
+
+        public void Show()
+        {
+            powerSupply.Show();
         }
 
         public void Start()

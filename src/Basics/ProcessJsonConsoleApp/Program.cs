@@ -12,13 +12,17 @@ devices.Add(new Valve());
 foreach (Device device in devices)
 {
     Console.WriteLine(device.Label);
-
+    
     if (device is Pump pump)
     {
         pump.Start();
 
+        pump.Show();
+
         Console.WriteLine(pump.IsRunning);
     }
+
+
 
 }
 
