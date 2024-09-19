@@ -4,8 +4,12 @@ using ProcessJsonConsoleApp.Infrastructures;
 
 Console.WriteLine("Hello, Json!");
 
+RequestService requestService = new RabbitMQRequestService();
+requestService.SendRailLoadRequest("A");
+
+
 IDeviceRepository repository = new JsonDeviceRepository();
-repository.Add(new Pump(new Inverter()));
+// repository.Add(new Pump(new Inverter()));
 
 List<Device> devices = repository.GetDevices();
 

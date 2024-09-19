@@ -9,12 +9,18 @@ namespace ProcessJsonConsoleApp.Infrastructures
 {
 
 
+
+
+
+
+
+
     interface IDeviceRepository
     {
         List<Device> GetDevices();
         Device GetDeviceById(int id);
     }
-        
+
     internal class FakeDeviceRepository : IDeviceRepository
     {
         public Device GetDeviceById(int id)
