@@ -1,9 +1,13 @@
 ﻿using ProcessJsonConsoleApp.Models;
 using Newtonsoft.Json;
+using ProcessJsonConsoleApp.Infrastructures;
 
 Console.WriteLine("Hello, Json!");
 
-List<Device> devices = GetFakeDevices();
+IDeviceRepository repository = new JsonDeviceRepository();
+repository.Add(new Pump(new Inverter()));
+
+List<Device> devices = repository.GetDevices();
 
 foreach (Device device in devices)
 {
@@ -52,11 +56,11 @@ if (header.ReportType == ReportTypes.Etanol)
     Console.WriteLine((byte)header.ReportType);
 }
 
-static List<Device> GetFakeDevices()
+
+
+static List<Device> GetJsonDevices()
 {
-    List<Device> devices = new List<Device>();
-    devices.Add(new Pump(new Inverter()));
-    devices.Add(new Pump(new SoftStart()));
-    devices.Add(new Valve());
-    return devices;
+    throw new NotImplementedException();
+
+
 }
