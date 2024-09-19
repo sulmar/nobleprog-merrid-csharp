@@ -4,7 +4,7 @@ using ProcessJsonConsoleApp.Infrastructures;
 
 Console.WriteLine("Hello, Json!");
 
-RequestService requestService = new InlineRequestService();
+IRequestRailService requestService = new InlineRequestService();
 requestService.SendRailLoadRequest("A");
 
 
