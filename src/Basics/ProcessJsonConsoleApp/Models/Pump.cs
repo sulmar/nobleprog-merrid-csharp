@@ -33,9 +33,14 @@ namespace ProcessJsonConsoleApp.Models
     {
         public double Voltage { get; set; } = 12.01f;
 
-        public bool IsReady()
+        public virtual bool IsReady()
         {
             return this.Voltage > 0;
+        }
+
+        public void DoWork()
+        {
+
         }
     }
 
@@ -47,6 +52,11 @@ namespace ProcessJsonConsoleApp.Models
     {
         public bool Bit1 { get; set; }
         public bool Bit2 { get; set; }
+
+        public override bool IsReady()
+        {
+            return base.IsReady() && Bit1 && Bit2;
+        }
     }
 
     public class Solar : PowerSupply
@@ -57,7 +67,7 @@ namespace ProcessJsonConsoleApp.Models
     public class Pump : Device // Dziedziczenie
     {
         public bool IsRunning { get; private set; }
-       
+
         private PowerSupply powerSupply;  // Kompozycja
 
         public Pump(PowerSupply powerSupply)

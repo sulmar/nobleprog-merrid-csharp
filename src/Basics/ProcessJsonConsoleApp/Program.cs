@@ -6,7 +6,7 @@ Console.WriteLine("Hello, Json!");
 
 List<Device> devices = new List<Device>();
 devices.Add(new Pump(new Inverter()));
-devices.Add(new Pump(new Inverter()));
+devices.Add(new Pump(new SoftStart()));
 devices.Add(new Valve());
 
 foreach (Device device in devices)
