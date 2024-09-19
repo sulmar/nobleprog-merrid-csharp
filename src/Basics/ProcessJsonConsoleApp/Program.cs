@@ -5,8 +5,8 @@ Console.WriteLine("Hello, Json!");
 
 
 List<Device> devices = new List<Device>();
-devices.Add(new Pump());
-devices.Add(new Pump());
+devices.Add(new Pump(new Inverter()));
+devices.Add(new Pump(new Inverter()));
 devices.Add(new Valve());
 
 foreach (Device device in devices)
@@ -14,7 +14,12 @@ foreach (Device device in devices)
     Console.WriteLine(device.Label);
 
     if (device is Pump pump)
-        pump.IsRunning = true;
+    {
+        pump.Start();
+
+        Console.WriteLine(pump.IsRunning);
+    }
+
 }
 
 

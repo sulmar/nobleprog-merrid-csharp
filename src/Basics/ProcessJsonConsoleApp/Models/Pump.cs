@@ -36,7 +36,7 @@ namespace ProcessJsonConsoleApp.Models
 
     public class Inverter
     {
-        public double Voltage { get; set; }
+        public float Voltage { get; set; } = 12.01f;
     }
 
     //public class SoftStart 
@@ -47,11 +47,17 @@ namespace ProcessJsonConsoleApp.Models
     public class Pump : Device // Dziedziczenie
     {
         public bool IsRunning { get; private set; }
-        public Inverter Inverter { get; set; }
+       
+        private Inverter inverter;  // Kompozycja
+
+        public Pump(Inverter inverter)
+        {
+            this.inverter = inverter;
+        }
 
         public void Start()
         {
-            if (Inverter.Voltage > 0 && !IsRunning)
+            if (inverter.Voltage > 0 && !IsRunning)
             {
                 IsRunning = true;
             }
