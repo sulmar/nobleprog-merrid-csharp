@@ -4,7 +4,7 @@ using ProcessJsonConsoleApp.Infrastructures;
 
 Console.WriteLine("Hello, Json!");
 
-RequestService requestService = new RabbitMQRequestService();
+RequestService requestService = new InlineRequestService();
 requestService.SendRailLoadRequest("A");
 
 
