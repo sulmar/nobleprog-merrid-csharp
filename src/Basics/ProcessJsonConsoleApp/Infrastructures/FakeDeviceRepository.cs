@@ -8,19 +8,6 @@ using System.Threading.Tasks;
 namespace ProcessJsonConsoleApp.Infrastructures
 {
 
-
-
-
-
-
-
-
-    interface IDeviceRepository
-    {
-        List<Device> GetDevices();
-        Device GetDeviceById(int id);
-    }
-
     internal class FakeDeviceRepository : IDeviceRepository
     {
         public Device GetDeviceById(int id)
@@ -35,23 +22,6 @@ namespace ProcessJsonConsoleApp.Infrastructures
             devices.Add(new Pump(new SoftStart()));
             devices.Add(new Valve());
             return devices;
-        }
-    }
-    internal class JsonDeviceRepository : IDeviceRepository
-    {
-        public void Add(Device device)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Device GetDeviceById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Device> GetDevices()
-        {
-            throw new NotImplementedException();
         }
     }
 }
