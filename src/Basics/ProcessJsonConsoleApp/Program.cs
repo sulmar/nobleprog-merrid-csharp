@@ -8,12 +8,22 @@ IRequestRailService requestService = new InlineRequestService();
 requestService.SendRailLoadRequest("A");
 
 
-IDeviceRepository repository = new JsonDeviceRepository();
+IDeviceRepository repository = new FakeDeviceRepository();
 // repository.Add(new Pump(new Inverter()));
 
-List<Device> devices = repository.GetDevices();
+List<Device> allDevices = repository.GetDevices();
 
-foreach (Device device in devices)
+List<Device> filteredDevices = new List<Device>();
+
+foreach(Device device in allDevices)
+{
+    if (device.Area == "BasePump1")
+    {
+        filteredDevices.Add(device);
+    }
+}    
+
+foreach (Device device in filteredDevices)
 {
     Console.WriteLine(device.Label);
 

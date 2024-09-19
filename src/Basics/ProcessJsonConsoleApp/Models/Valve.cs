@@ -4,5 +4,11 @@
     {
         public bool IsOpened { get; set; }
         public int Mode { get; set; }
+
+        public Valve(string name)
+            : base(name)
+        {
+
+        }
     }
 }

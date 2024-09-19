@@ -18,9 +18,9 @@ namespace ProcessJsonConsoleApp.Infrastructures
         public List<Device> GetDevices()
         {
             List<Device> devices = new List<Device>();
-            devices.Add(new Pump(new Inverter()));
-            devices.Add(new Pump(new SoftStart()));
-            devices.Add(new Valve());
+            devices.Add(new Pump("BasePump1", new Inverter()));
+            devices.Add(new Pump("BasePump2", new SoftStart()));
+            devices.Add(new Valve("BasePump1"));
             return devices;
         }
     }

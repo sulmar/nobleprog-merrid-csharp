@@ -13,7 +13,8 @@ namespace ProcessJsonConsoleApp.Models
 
         private PowerSupply powerSupply;  // Kompozycja
 
-        public Pump(PowerSupply powerSupply)
+        public Pump(string area, PowerSupply powerSupply)
+             : base(area)
         {
             this.powerSupply = powerSupply;
         }

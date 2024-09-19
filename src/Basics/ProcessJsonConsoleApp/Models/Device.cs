@@ -20,5 +20,11 @@
                     throw new ArgumentException();
             }
         }
+        public string Area { get; set; }
+
+        public Device(string area)
+        {
+            this.Area = area;
+        }
     }
 }
